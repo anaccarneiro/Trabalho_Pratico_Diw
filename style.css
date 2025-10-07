@@ -1,3 +1,14 @@
 .bg-primary {
   background-color: #e3f2fd !important;
 }
+
+#carouselExampleCaptions {
+  margin-top: 50px;
+  height: 1000px;
+  width: 1000px;
+}
+
+#carrosel {
+  height: 65vh; 
+  min-height: 0;
+}
