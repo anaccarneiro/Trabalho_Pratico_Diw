@@ -82,13 +82,13 @@
         },
         {
             "id": 9,
-            "nome": "",
+            "nome": "Antigua",
             "imagem": "",
-            "pais": "",
-            "descricao": "",
-            "descricaoCurta": "",
-            "curiosidades": "",
-            "populacao": ""
+            "pais": "Guatemala",
+            "descricao": "Antigua é uma cidade colonial encantadora, famosa por suas ruas de paralelepípedo, igrejas históricas e vulcões ao fundo. Seu centro histórico é Patrimônio Mundial da UNESCO e atrai turistas do mundo todo.",
+            "descricaoCurta": "Cidade colonial charmosa e viva.",
+            "curiosidades": "1. Antigua foi a capital da Guatemala até 1773.\n2. Possui uma famosa Semana Santa com procissões impressionantes.\n3. O vulcão de Água domina a paisagem da cidade.",
+            "populacao": "45.000"
         },
         {
             "id": 10,

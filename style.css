@@ -9,7 +9,7 @@
 }
 
 #carrossel {
-  height: 75vh; 
+  height: 75vh;
   min-height: 0;
 }
 
@@ -24,11 +24,11 @@
   margin-top: 60px;
 }
 
-section{
+section {
   margin-bottom: 3rem;
 }
 
-header{
+header {
   height: 100px;
 }
 
@@ -36,3 +36,15 @@ header{
   height: 80px;
 }
 
+.linha-footer {
+  border-top: 2px solid grey;
+  width: 95%;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.container {
+  padding-top: 2rem;
+  margin: 0%;
+  flex-wrap: wrap;
+}
