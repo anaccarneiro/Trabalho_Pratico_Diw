@@ -39,7 +39,6 @@
             "descricaoCurta": "Cidade colonial e colorida do México.",
             "curiosidades": "Puebla é famosa pelos azulejos Talavera e pela receita original do 'mole poblano', prato típico mexicano.",
             "populacao": "aprox. 1,5 milhão"
-            
         },
         {
             "id": 5,
@@ -47,7 +46,7 @@
             "imagem": "",
             "pais": "Coreia do Sul",
             "descricao": "Seul é a vibrante capital da Coreia do Sul, conhecida por sua mistura de tradição e modernidade, palácios históricos e arranha-céus futuristas.",
-            "descricaoCurta": "A metrópole que une história e tecnologia.",
+            "descricaoCurta": "A conectada e vibrante metrópole",
             "curiosidades": "Seul possui o maior sistema de metrô do mundo em extensão, e em abril a cidade se enche de flores de cerejeira, criando cenários espetaculares para os festivais de primavera.",
             "populacao": "aprox. 9,5 milhões"
         },
@@ -63,16 +62,36 @@
         },
         {
             "id": 7,
-            "nome": "Zurique",
+            "nome": "Helsinque",
             "imagem": "",
-            "pais": "Suíça",
-            "descricao": "Zurique é a maior cidade da Suíça e um importante centro financeiro, famosa por sua qualidade de vida, lagos e montanhas ao redor.",
-            "descricaoCurta": "A cidade suíça entre lago e montanhas.",
-            "curiosidades": "Zurique possui mais de 1.200 pontes e canais, e é considerada uma das cidades com melhor qualidade de vida do mundo.",
-            "populacao": "aprox. 430 mil"
+            "pais": "Finalândia",
+            "descricao": "Helsinque é a capital e maior cidade da Finlândia, localizada às margens do Golfo da Finlândia. É conhecida por sua arquitetura moderna e funcionalista, design inovador, vida cultural vibrante e conexão próxima com a natureza, com inúmeros parques e ilhas ao redor.",
+            "descricaoCurta": "O coração criativo do norte da Europa.",
+            "curiosidades": "Helsinque se estende por mais de 300 ilhas e foi eleita várias vezes uma das cidades mais habitáveis do mundo. É também considerada a capital mundial do design desde 2012.",
+            "populacao": "aprox. 665 mil"
         },
         {
             "id": 8,
+            "nome": "Rio de Janeiro",
+            "imagem": "",
+            "pais": "Brasil",
+            "descricao": "Cidade histórica famosa por suas casas-caverna e ruas esculpidas na rocha, na região da Basilicata.",
+            "descricaoCurta": "A cidade das cavernas italianas.",
+            "curiosidades": "Matera é habitada há mais de 9.000 anos e suas casas-caverna (Sassi) são Patrimônio Mundial da UNESCO, mostrando um estilo de vida antigo ainda preservado.",
+            "populacao": "aprox. 60 mil"
+        },
+        {
+        "id": 9,
+            "nome": "",
+            "imagem": "",
+            "pais": "",
+            "descricao": "",
+            "descricaoCurta": "",
+            "curiosidades": "",
+            "populacao": ""
+        },
+        {
+            "id": 10,
             "nome": "Matera",
             "imagem": "",
             "pais": "Itália",
@@ -82,14 +101,24 @@
             "populacao": "aprox. 60 mil"
         },
         {
-            "id": 9,
-            "nome": "Rio de Janeiro",
+            "id": 11,
+            "nome": "Chiang Mai",
             "imagem": "",
-            "pais": "Brasil",
-            "descricao": "Cidade histórica famosa por suas casas-caverna e ruas esculpidas na rocha, na região da Basilicata.",
-            "descricaoCurta": "A cidade das cavernas italianas.",
-            "curiosidades": "Matera é habitada há mais de 9.000 anos e suas casas-caverna (Sassi) são Patrimônio Mundial da UNESCO, mostrando um estilo de vida antigo ainda preservado.",
-            "populacao": "aprox. 60 mil"
+            "pais": "Tailândia",
+            "descricao": "Localizada no norte montanhoso da Tailândia, Chiang Mai é uma cidade rica em cultura, templos antigos e tradições budistas. É cercada por natureza exuberante, mercados vibrantes e uma cena artística crescente que mistura o antigo e o moderno.",
+            "descricaoCurta": "O coração espiritual da Tailândia.",
+            "curiosidades": "Chiang Mai abriga mais de 300 templos, incluindo o famoso Wat Phra That Doi Suthep, e é conhecida por seu Festival das Lanternas, o Yi Peng, quando milhares de lanternas são lançadas ao céu.",
+            "populacao": "aprox. 130 mil"
+        },
+        {
+        "id": 9,
+            "nome": "",
+            "imagem": "",
+            "pais": "",
+            "descricao": "",
+            "descricaoCurta": "",
+            "curiosidades": "",
+            "populacao": ""
         }
     ]
 }
