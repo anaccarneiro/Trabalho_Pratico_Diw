@@ -81,7 +81,7 @@
             "populacao": "aprox. 60 mil"
         },
         {
-        "id": 9,
+            "id": 9,
             "nome": "",
             "imagem": "",
             "pais": "",
@@ -92,13 +92,13 @@
         },
         {
             "id": 10,
-            "nome": "Matera",
+            "nome": "Wellington",
             "imagem": "",
-            "pais": "Itália",
-            "descricao": "Cidade histórica famosa por suas casas-caverna e ruas esculpidas na rocha, na região da Basilicata.",
-            "descricaoCurta": "A cidade das cavernas italianas.",
-            "curiosidades": "Matera é habitada há mais de 9.000 anos e suas casas-caverna (Sassi) são Patrimônio Mundial da UNESCO, mostrando um estilo de vida antigo ainda preservado.",
-            "populacao": "aprox. 60 mil"
+            "pais": "Nova Zelândia",
+            "descricao": "Capital compacta e cultural da Nova Zelândia, famosa por sua cena cinematográfica, cafés criativos e paisagens naturais ao redor do porto.",
+            "descricaoCurta": "Cidade portuária cercada por colinas verdes.",
+            "curiosidades": "Wellington é conhecida como a 'Windy City' da Oceania por seus ventos fortes, abriga o Museu Te Papa Tongarewa e é a base de Peter Jackson para filmes como 'O Senhor dos Anéis'. Possui um teleférico que leva ao Jardim Botânico, oferecendo vistas incríveis da cidade.",
+            "populacao": "aprox. 215 mil"
         },
         {
             "id": 11,
@@ -111,14 +111,14 @@
             "populacao": "aprox. 130 mil"
         },
         {
-        "id": 9,
-            "nome": "",
+            "id": 12,
+            "nome": "Maun",
             "imagem": "",
-            "pais": "",
-            "descricao": "",
-            "descricaoCurta": "",
-            "curiosidades": "",
-            "populacao": ""
+            "pais": "Botsuana",
+            "descricao": "Maun é a porta de entrada para o Delta do Okavango, uma das maiores áreas úmidas do mundo, famosa por seus safaris e paisagens naturais impressionantes.",
+            "descricaoCurta": "Centro de safaris no Delta do Okavango",
+            "curiosidades": "Maun é conhecida como a capital dos safaris de Botsuana e serve de ponto de partida para voos panorâmicos sobre o delta.",
+            "populacao": "55.000"
         }
     ]
 }
