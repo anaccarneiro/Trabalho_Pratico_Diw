@@ -4,15 +4,35 @@
 
 #carouselExampleCaptions {
   margin-top: 50px;
-  height: 1000px;
-  width: 1000px;
+  height: 800px;
+  width: 800px;
 }
 
-#carrosel {
-  height: 65vh; 
+#carrossel {
+  height: 80vh; 
   min-height: 0;
 }
 
-div{
-  padding: 0%;
+.card {
+  height: 22rem;
 }
+
+.cidades {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 60px;
+}
+
+section{
+  margin-bottom: 3rem;
+}
+
+header{
+  height: 100px;
+}
+
+.img-header {
+  height: 80px;
+}
+
