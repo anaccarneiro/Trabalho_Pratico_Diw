@@ -22,6 +22,7 @@
   flex-wrap: wrap;
   justify-content: space-around;
   margin-top: 60px;
+  font-size: 0.78rem;
 }
 
 section {
@@ -48,3 +49,4 @@ header {
   margin: 0%;
   flex-wrap: wrap;
 }
+
