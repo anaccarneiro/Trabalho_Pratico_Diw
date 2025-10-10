@@ -216,16 +216,6 @@ function carregarDetalhes() {
     }
 }
 
-function carregarDetalhes() {
-    const params = new URLSearchParams(window.location.search);
-    const id = parseInt(params.get('id'));
-    const cidadeSelecionada = data.places.find(lugar => lugar.id === id);
-
-    if (cidadeSelecionada) {
-        imprimirNaTela(cidadeSelecionada);
-    }
-}
-
 function imprimirNaTela(cidade) {
 
     document.title = `${cidade.nome} - ${cidade.pais}`;
@@ -253,11 +243,91 @@ function imprimirNaTela(cidade) {
     `;
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+function selecionarCidadesAleatorias(numeroDeCidades) {
+    const idsSorteados = [];
+    const cidadesSorteadas = [];
 
-    if (document.querySelector('.cidades')) {
+    while (idsSorteados.length < numeroDeCidades) {
+        const indiceAleatorio = Math.floor(Math.random() * data.places.length);
+        const novoId = data.places[indiceAleatorio].id;
+        
+        if (!idsSorteados.includes(novoId)) {
+            idsSorteados.push(novoId);
+        }
+    }
+    
+    // Converte os IDs únicos em objetos de cidades
+    idsSorteados.forEach(id => {
+        const cidade = data.places.find(lugar => lugar.id === id);
+        if (cidade) {
+            cidadesSorteadas.push(cidade);
+        }
+    });
+
+    return cidadesSorteadas;
+}
+
+
+function carregarIndicadores(totalCidades) {
+    const indicatorsContainer = document.querySelector('#carouselExampleCaptions .carousel-indicators');
+    if (!indicatorsContainer) return; 
+
+    let indicatorsHTML = '';
+    for (let i = 0; i < totalCidades; i++) {
+        const active = i === 0 ? 'class="active" aria-current="true"' : '';
+        indicatorsHTML += `
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="${i}" ${active} aria-label="Slide ${i + 1}"></button>
+        `;
+    }
+    indicatorsContainer.innerHTML = indicatorsHTML;
+}
+
+function carrosselDinamico() {
+    
+    const cidades = selecionarCidadesAleatorias(3);
+
+    const carouselInner = document.querySelector('#carouselExampleCaptions .carousel-inner');
+    
+    let carouselHTML = ''; 
+    
+    cidades.forEach((cidade, index) => {
+      
+        const activeClass = index === 0 ? 'active' : '';
+
+        
+        carouselHTML += `
+            <div class="carousel-item ${activeClass}">
+                <a href="detalhes.html?id=${cidade.id}" class="d-block w-100">
+                    <img src="${cidade.imagem}" class="d-block w-100" alt="${cidade.nome}">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>${cidade.nome}</h5>
+                        <p>${cidade.descricaoCurta}</p>
+                    </div>
+                </a>
+            </div>
+        `;
+    });
+    
+    
+    carouselInner.innerHTML = carouselHTML;
+    carregarIndicadores(cidades.length);
+
+    const carouselElement = document.getElementById('carouselExampleCaptions');
+    if (carouselElement && typeof bootstrap !== 'undefined') {
+        new bootstrap.Carousel(carouselElement, {
+            
+            interval: 3000 
+        });
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    
+    if (document.querySelector('.cidades') || document.querySelector('#carrossel')) {
         carregarCidades();
+        
+        carrosselDinamico(); 
     } else {
-        carregarDetalhes();
+        carregarDetalhes(); 
     }
 });
