@@ -1,4 +1,4 @@
-const data = {
+var data = {
     "places": [
         {
             "id": 1,
@@ -183,151 +183,121 @@ const data = {
     ]
 }
 
+// Função para carregar todas as cidades na página principal
 function carregarCidades() {
-    const containerCidade = document.querySelector('.cidades');
+    var containerCidade = document.querySelector('.cidades');
+    var cities = "";
 
-    let cities = "";
+    for (var i = 0; i < data.places.length; i++) {
+        var lugar = data.places[i];
 
-    data.places.forEach(lugar => {
+        cities +=
+            '<section class="d-inline-block" id="' + lugar.id + '">' +
+            '<div class="card" style="width: 18rem;">' +
+            '<img src="' + lugar.imagem + '" class="card-img-top img-fluid" alt="' + lugar.nome + '">' +
+            '<div class="card-body">' +
+            '<h5 class="card-title">' + lugar.nome + ' - ' + lugar.pais + '</h5>' +
+            '<p class="card-text">' + lugar.descricaoCurta + '</p>' +
+            '<a href="detalhes.html?id=' + lugar.id + '" class="btn btn-primary">Saiba Mais</a>' +
+            '</div>' +
+            '</div>' +
+            '</section>';
+    }
 
-        cities += `
-    <section class="d-inline-block" id="${lugar.id}">
-                <div class="card" style="width: 18rem;">
-                    <img src="${lugar.imagem}" class="card-img-top img-fluid" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">${lugar.nome} - ${lugar.pais}</h5>
-                        <p class="card-text">${lugar.descricaoCurta}</p>
-                        <a href="detalhes.html?id=${lugar.id}" class="btn btn-primary">Saiba Mais</a>
-                    </div>
-                </div>
-            </section>
-        `;
-    });
     containerCidade.innerHTML = cities;
 }
 
+// Função para mostrar detalhes de uma cidade
 function carregarDetalhes() {
-    const params = new URLSearchParams(window.location.search);
-    const id = parseInt(params.get('id'));
-    const cidadeSelecionada = data.places.find(lugar => lugar.id === id);
+    var params = new URLSearchParams(window.location.search);
+    var id = parseInt(params.get('id'));
 
-    if (cidadeSelecionada) {
-        imprimirNaTela(cidadeSelecionada);
-    }
-}
-
-function imprimirNaTela(cidade) {
-
-    document.title = `${cidade.nome} - ${cidade.pais}`;
-
-
-    document.getElementById('descriçãoPais').innerHTML = `
-        <strong>${cidade.nome}:</strong> ${cidade.descricaoPais} (${cidade.pais})
-    `;
-
-    document.getElementById('imagem').src = cidade.localTuristico.imagem;
-
-    document.getElementById('localTuristico').textContent = cidade.localTuristico.nome;
-
-    document.getElementById('descricao').innerHTML = `
-        <strong>Descrição:</strong> ${cidade.localTuristico.descricao}
-    `;
-
-    const curiosidadesFormatadas = cidade.curiosidades.replace(/\n/g, '<br>');
-    document.getElementById('curiosidades').innerHTML = `
-        <strong>Curiosidade do País:</strong> ${curiosidadesFormatadas}
-    `;
-
-    document.getElementById('populacao').innerHTML = `
-        <strong>População:</strong> ${cidade.populacao}
-    `;
-}
-
-function selecionarCidadesAleatorias(numeroDeCidades) {
-    const idsSorteados = [];
-    const cidadesSorteadas = [];
-
-    while (idsSorteados.length < numeroDeCidades) {
-        const indiceAleatorio = Math.floor(Math.random() * data.places.length);
-        const novoId = data.places[indiceAleatorio].id;
-        
-        if (!idsSorteados.includes(novoId)) {
-            idsSorteados.push(novoId);
+    for (var i = 0; i < data.places.length; i++) {
+        if (data.places[i].id === id) {
+            imprimirNaTela(data.places[i]);
+            break;
         }
     }
-    
-    // Converte os IDs únicos em objetos de cidades
-    idsSorteados.forEach(id => {
-        const cidade = data.places.find(lugar => lugar.id === id);
-        if (cidade) {
+}
+
+// Função que escreve os detalhes da cidade no HTML
+function imprimirNaTela(cidade) {
+    document.title = cidade.nome + ' - ' + cidade.pais;
+    document.getElementById('descriçãoPais').innerHTML = '<strong>' + cidade.nome + ':</strong> ' + cidade.descricaoPais + ' (' + cidade.pais + ')';
+    document.getElementById('imagem').src = cidade.localTuristico.imagem;
+    document.getElementById('localTuristico').textContent = cidade.localTuristico.nome;
+    document.getElementById('descricao').innerHTML = '<strong>Descrição:</strong> ' + cidade.localTuristico.descricao;
+    document.getElementById('curiosidades').innerHTML = '<strong>Curiosidade do País:</strong> ' + cidade.curiosidades;
+    document.getElementById('populacao').innerHTML = '<strong>População:</strong> ' + cidade.populacao;
+}
+
+// Função para escolher cidades aleatórias
+function selecionarCidadesAleatorias(numeroDeCidades) {
+    var cidadesSorteadas = [];
+
+    while (cidadesSorteadas.length < numeroDeCidades) {
+        var index = Math.floor(Math.random() * data.places.length);
+        var cidade = data.places[index];
+
+        if (cidadesSorteadas.indexOf(cidade) === -1) {
             cidadesSorteadas.push(cidade);
         }
-    });
+    }
 
     return cidadesSorteadas;
 }
 
-
+// Função para criar os indicadores do carrossel
 function carregarIndicadores(totalCidades) {
-    const indicatorsContainer = document.querySelector('#carouselExampleCaptions .carousel-indicators');
-    if (!indicatorsContainer) return; 
+    var container = document.querySelector('#carouselExampleCaptions .carousel-indicators');
+    if (!container) return;
 
-    let indicatorsHTML = '';
-    for (let i = 0; i < totalCidades; i++) {
-        const active = i === 0 ? 'class="active" aria-current="true"' : '';
-        indicatorsHTML += `
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="${i}" ${active} aria-label="Slide ${i + 1}"></button>
-        `;
+    var indicatorsHTML = '';
+    for (var i = 0; i < totalCidades; i++) {
+        var active = i === 0 ? 'class="active" aria-current="true"' : '';
+        indicatorsHTML += '<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="' + i + '" ' + active + ' aria-label="Slide ' + (i + 1) + '"></button>';
     }
-    indicatorsContainer.innerHTML = indicatorsHTML;
+    container.innerHTML = indicatorsHTML;
 }
 
+// Função para preencher o carrossel com cidades aleatórias
 function carrosselDinamico() {
-    
-    const cidades = selecionarCidadesAleatorias(3);
+    var cidades = selecionarCidadesAleatorias(3);
+    var carouselInner = document.querySelector('#carouselExampleCaptions .carousel-inner');
+    var carouselHTML = '';
 
-    const carouselInner = document.querySelector('#carouselExampleCaptions .carousel-inner');
-    
-    let carouselHTML = ''; 
-    
-    cidades.forEach((cidade, index) => {
-      
-        const activeClass = index === 0 ? 'active' : '';
+    for (var i = 0; i < cidades.length; i++) {
+        var cidade = cidades[i];
+        var activeClass = i === 0 ? 'active' : '';
 
-        
-        carouselHTML += `
-            <div class="carousel-item ${activeClass}">
-                <a href="detalhes.html?id=${cidade.id}" class="d-block w-100">
-                    <img src="${cidade.imagem}" class="d-block w-100" alt="${cidade.nome}">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>${cidade.nome}</h5>
-                        <p>${cidade.descricaoCurta}</p>
-                    </div>
-                </a>
-            </div>
-        `;
-    });
-    
-    
+        carouselHTML +=
+            '<div class="carousel-item ' + activeClass + '">' +
+            '<a href="detalhes.html?id=' + cidade.id + '" class="d-block w-100">' +
+            '<img src="' + cidade.imagem + '" class="d-block w-100" alt="' + cidade.nome + '">' +
+            '<div class="carousel-caption d-none d-md-block">' +
+            '<h5>' + cidade.nome + '</h5>' +
+            '<p>' + cidade.descricaoCurta + '</p>' +
+            '</div>' +
+            '</a>' +
+            '</div>';
+    }
+
     carouselInner.innerHTML = carouselHTML;
     carregarIndicadores(cidades.length);
 
-    const carouselElement = document.getElementById('carouselExampleCaptions');
-    if (carouselElement && typeof bootstrap !== 'undefined') {
-        new bootstrap.Carousel(carouselElement, {
-            
-            interval: 3000 
-        });
+    // Inicializa o carrossel do Bootstrap
+    var carouselElement = document.getElementById('carouselExampleCaptions');
+    if (carouselElement) {
+        new bootstrap.Carousel(carouselElement, { interval: 3000 });
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    
+// Roda quando a página é carregada
+document.addEventListener('DOMContentLoaded', function () {
     if (document.querySelector('.cidades') || document.querySelector('#carrossel')) {
         carregarCidades();
-        
-        carrosselDinamico(); 
+        carrosselDinamico();
     } else {
-        carregarDetalhes(); 
+        carregarDetalhes();
     }
 });
